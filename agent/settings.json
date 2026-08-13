@@ -1,0 +1,17 @@
+{
+  "lastChangelogVersion": "0.83.0",
+  "defaultProvider": "claude-bridge",
+  "defaultModel": "claude-opus-5",
+  "defaultThinkingLevel": "medium",
+  "hideThinkingBlock": false,
+  "packages": [
+    "https://github.com/mattpocock/skills",
+    "npm:pi-mcp-adapter",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:pi-subagents",
+    "git:github.com/DietrichGebert/ponytail",
+    "npm:pi-claude-bridge",
+    "https://github.com/JuliusBrussee/caveman"
+  ],
+  "theme": "dark"
+}

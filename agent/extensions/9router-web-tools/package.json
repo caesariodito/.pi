@@ -1,0 +1,8 @@
+{
+  "name": "pi-9router-web-tools",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "typebox": "latest"
+  }
+}

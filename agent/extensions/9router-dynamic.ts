@@ -62,7 +62,7 @@ function looksLikeChatModel(id: string): boolean {
   );
 }
 
-export default async function (pi: ExtensionAPI) {
+async function registerDynamicProvider(pi: ExtensionAPI) {
   const configPath = path.join(os.homedir(), ".pi", "agent", "models.json");
   const config = JSON.parse(fs.readFileSync(configPath, "utf8")) as ModelsConfig;
   const existing = config.providers?.["9router"];
@@ -84,6 +84,7 @@ export default async function (pi: ExtensionAPI) {
   const modelsUrl = `${baseUrl.replace(/\/$/, "")}/models`;
   const response = await fetch(modelsUrl, {
     headers: { Authorization: `Bearer ${apiKey}` },
+    signal: AbortSignal.timeout(3000),
   });
 
   if (!response.ok) {
@@ -124,4 +125,12 @@ export default async function (pi: ExtensionAPI) {
   });
 
   console.log(`[9router-dynamic] Registered ${models.length} models from ${modelsUrl}`);
+}
+
+export default async function (pi: ExtensionAPI) {
+  try {
+    await registerDynamicProvider(pi);
+  } catch (error) {
+    console.warn(`[9router-dynamic] Dynamic model discovery unavailable: ${error instanceof Error ? error.message : String(error)}`);
+  }
 }

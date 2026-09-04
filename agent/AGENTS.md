@@ -1,9 +1,5 @@
 # Global agent instructions
 
-## Communication mode
-
-Default: **caveman**. Apply `/skill:caveman` to every response — no trigger phrase needed. Persistent across turns. Stays on unless user says "stop caveman" or "normal mode".
-
 ## Matt Pocock skills routing
 
 When `mattpocock/skills` is installed, proactively use these skills for day-to-day engineering workflow.

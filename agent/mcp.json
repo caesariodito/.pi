@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "n8n": {
+      "url": "https://n8n.sesar.my.id/mcp-server/http",
+      "auth": "bearer",
+      "bearerTokenEnv": "N8N_MCP_TOKEN",
+      "lifecycle": "lazy",
+      "approveTools": false
+    },
+    "sheets": {
+      "url": "https://sheetsmcp.googleapis.com/mcp/v1",
+      "auth": "oauth",
+      "oauth": {
+        "clientId": "693551499605-nttfdcbcael6k3tbqhcvqsvhku48aphd.apps.googleusercontent.com",
+        "clientSecret": "!python3 -c 'import json; print(json.load(open(\"/home/sesarwork/.config/pi/sheets-mcp-oauth.json\"))[\"client_secret\"])'",
+        "scope": "https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/spreadsheets",
+        "redirectUri": "http://localhost:3118/callback",
+        "authorizationParams": {
+          "prompt": "consent",
+          "include_granted_scopes": "true"
+        }
+      },
+      "approveTools": ["update_*", "insert_dimension"]
+    }
+  }
+}

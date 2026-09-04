@@ -1,9 +1,13 @@
 {
-  "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-sol",
+  "lastChangelogVersion": "0.84.4",
+  "defaultProvider": "9router",
+  "defaultModel": "cx/gpt-5.6-sol",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": false,
+  "subagents": {
+    "defaultModel": "cx/gpt-5.6-sol:medium",
+    "defaultProvider": "9router"
+  },
   "packages": [
     "https://github.com/mattpocock/skills",
     "npm:pi-mcp-adapter",
@@ -13,7 +17,9 @@
     "npm:pi-claude-bridge",
     {
       "source": "https://github.com/JuliusBrussee/caveman",
-      "skills": ["-skills/native-core.md"]
+      "skills": [
+        "-skills/native-core.md"
+      ]
     }
   ],
   "theme": "dark"
